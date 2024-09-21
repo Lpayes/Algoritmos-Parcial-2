@@ -1,19 +1,29 @@
 #include <iostream>
-
 using namespace std;
-int main (){
-	int x;
-	cout <<"escriba un numero ";
-	cin>>x;
-	
-	if(x==0){
-		cout<<"Es un numero cero";
-	}	
-	else if (x%2==0){
-		cout<< "el numero " <<x<< " Es un numero primo";
-	}
-	else {
-	cout<< "el numero " <<x<< " no es primo";
-	}	
-	return 0;
+
+bool esPrimo(int numero) {
+    if (numero <= 1) {
+        return false; 
+    }
+    for (int i = 2; i <= numero / 2; i++) {
+        if (numero % i == 0) {
+            return false; 
+        }
+    }
+}
+
+int main() {
+    int numero;
+
+    cout << "Introduce un número entero positivo  por favor: ";
+    cin >> numero;
+
+
+    if (esPrimo(numero)) {
+        cout << numero << " Es un número primo." << endl;
+    } else {
+        cout << numero << " No es un número primo." << endl;
+    }
+
+    return 0;
 }
